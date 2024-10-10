@@ -67,7 +67,6 @@ async function updateAirplane(id, data) {
     }
     throw new AppError(`Cannot update data of requested airplane `, StatusCodes.INTERNAL_SERVER_ERROR);
   }
-  
 }
 module.exports = {
   createAirplane,
