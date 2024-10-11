@@ -13,17 +13,4 @@ app.use("/api", apiRoutes);
 app.listen(ServerConfig.PORT, async () => {
   //logger.info("Called form listen");
   console.log(`Successfully started the server on PORT : ${ServerConfig.PORT}`);
-
-  //bad code alert
-  const {City, Airport} = require('./models');
-  // const bengaluru = await City.findByPk(12);
-  // const kmairport = bengaluru.createAirport({name:'Hubaali Airport',code:'HUB'})
-
-  // await bengaluru.removeAirport(kmairport);
-
-  await City.destroy({
-    where:{
-      id:12
-    }
-  });
 });
