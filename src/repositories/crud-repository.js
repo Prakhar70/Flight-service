@@ -39,7 +39,7 @@ class CRUDRespository {
         id: id,
       },
     });
-    if(!response[0]){
+    if(!response[0]){//response[0] is 0 if resource is not found else it would be 1
       throw new AppError('Not able to find the resource', StatusCodes.NOT_FOUND)
     }
     return response;

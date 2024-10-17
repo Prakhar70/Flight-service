@@ -9,7 +9,6 @@ async function createAirport(data) {
     const airport = await airportRepository.create(data);
     return airport;
   } catch (error) {
-    
     if (error.name == "SequelizeValidationError") {
       let explaination = [];
       
