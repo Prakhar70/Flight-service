@@ -1,5 +1,5 @@
 const error = {
-    sucess:false,
+    success:false,
     message:'Something went wrong',
     data:{},
     error:{}
