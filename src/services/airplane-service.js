@@ -9,8 +9,9 @@ async function createAirplane(data) {
     const airplane = await airplaneRepository.create(data);
     return airplane;
   } catch (error) {
-    
+    //every object in javascript has error.name
     if (error.name == "SequelizeValidationError") {
+      //client side error.. because validation failed due to client side changes
       let explaination = [];
       
       error.errors.forEach(err => {

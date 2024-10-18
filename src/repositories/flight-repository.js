@@ -22,7 +22,7 @@ class FlightRepository extends CRUDRespository {
         {
             model:Airport,
             required:true,
-            as:'departureAirport',
+            as:'departureAirport',//if on not given it will match Aiport.id not code
             on:{
                 col1:Sequelize.where(Sequelize.col("Flight.departureAirportId"), "=",Sequelize.col("departureAirport.code"))
             },
@@ -34,7 +34,7 @@ class FlightRepository extends CRUDRespository {
         {
             model:Airport,
             required:true,
-            as:'arrivalAirport',
+            as:'arrivalAirport',// to determine the association you have put in your model
             on:{
                 col1:Sequelize.where(Sequelize.col("Flight.arrivalAirportId"), "=",Sequelize.col("arrivalAirport.code"))
             },

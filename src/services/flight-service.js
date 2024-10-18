@@ -27,7 +27,7 @@ async function createFlight(data) {
 async function getAllFlights(query) {
     let customFilters={};
     let sortFilter=[];  
-    const endingTripTime = ' 23:59:00';
+    const endingTripTime = ' 23:59:59';
 
     if(query.trips){
         [departureAirportId, arrivalAirportId ] = query.trips.split('-');
@@ -38,7 +38,7 @@ async function getAllFlights(query) {
     if(query.price){
         [minPrice, maxPrice] = query.price.split("-");
         customFilters.price = {
-            [Op.between] : [minPrice, maxPrice]
+            [Op.between] : [minPrice, ((maxPrice === undefined)?2000:maxPrice)]
         }
     }
     if(query.travellers){
@@ -68,7 +68,6 @@ async function getAllFlights(query) {
 
 async function getFlight(id){
     try{
-        console.log('service', id)
         const flight = await flightRepository.get(id);
         return flight;
       }catch(error){
